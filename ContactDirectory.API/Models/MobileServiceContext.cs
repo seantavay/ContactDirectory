@@ -26,7 +26,9 @@ namespace ContactDirectory.API.Models
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<ContactInfo> ContactInfo { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -34,5 +36,6 @@ namespace ContactDirectory.API.Models
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
+
     }
 }
